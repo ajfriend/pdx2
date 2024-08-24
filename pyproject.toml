@@ -9,8 +9,9 @@ readme = 'readme.md'
 requires-python = '>=3.6'
 
 dependencies = [
-    'pandas >= 1.0',
-    'duckdb >= 0.6',
+    'pandas >= 2.0',
+    'duckdb >= 1.0',
+    'pyarrow >= 16.0.0',
 ]
 
 [project.urls]
