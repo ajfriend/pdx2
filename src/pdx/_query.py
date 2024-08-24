@@ -1,4 +1,5 @@
 import duckdb
+import pyarrow as pa
 
 from ._util import _get_if_file
 
@@ -8,6 +9,7 @@ def sql(s, **dfs):
     con = duckdb.connect(database=':memory:', config=config)
 
     for tbl_name, df in dfs.items():
+        df = pa.Table.from_pandas(df)
         con.register(tbl_name, df)
 
     s = _get_if_file(s)
