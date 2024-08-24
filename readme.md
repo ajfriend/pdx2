@@ -4,20 +4,20 @@
 pip install git+https://github.com/ajfriend/pdx
 ```
 
-Small ergonomic improvements to make it easy to run [DuckDB](https://duckdb.org/) queries on Pandas dataframes.
+Small ergonomic improvements to make it easy to run [DuckDB](https://duckdb.org/) queries on Pandas DataFrames.
 
-- `pdx` monkey-patches Pandas to provide a `df.sql(...)` method.
+- `pdx` monkey-patches `pandas.DataFrame` to provide a `df.sql(...)` method.
 - since `pdx` uses DuckDB, you can leverage their convienient SQL dialect:
   - https://duckdb.org/2022/05/04/friendlier-sql.html
   - https://duckdbsnippets.com/
 
 
-Query a dataframe with `df.sql(...)`.
-Omit the `FROM` clause because it is included implicitly:
+Query a Pandas DataFrame with `df.sql(...)`.
+Omit the `FROM` clause because it is added implicitly:
 
 ```python
 import pdx
-iris = pdx.data.get_iris()
+iris = pdx.data.get_iris()  # returns pandas.DataFrame
 
 iris.sql("""
 select
