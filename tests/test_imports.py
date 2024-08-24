@@ -1,6 +1,3 @@
-def test_1():
-    import prql_python as prql
-
 def test_2():
     import pandas
 

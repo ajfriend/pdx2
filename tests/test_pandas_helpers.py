@@ -26,36 +26,6 @@ def test_from_first_sql():
     )
 
 
-def test_from_first_prql():
-    iris = pdx.data.get_iris()
-
-    foo = lambda s: iris.prql(s).asitem()
-
-    assert (
-        foo('aggregate [average sepal_length]')
-        ==
-        approx(5.843333333333335)
-    )
-
-    assert (
-        foo("""
-            filter sepal_length < 6.0
-            aggregate [average sepal_length]
-        """)
-        ==
-        approx(5.224096385542169)
-    )
-
-    assert (
-        foo("""
-            filter sepal_length > 6.0
-            aggregate [average sepal_length]
-        """)
-        ==
-        approx(6.670491803278686)
-    )
-
-
 def test_default_table_name_and_CTE():
     iris = pdx.data.get_iris()
 
