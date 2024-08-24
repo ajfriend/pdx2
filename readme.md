@@ -4,18 +4,62 @@
 pip install git+https://github.com/ajfriend/pdx
 ```
 
-- powered by [DuckDB](https://duckdb.org/)
+Small ergonomic improvements to make it easy to run [DuckDB](https://duckdb.org/) queries on Pandas dataframes.
+
+- `pdx` monkey-patches Pandas to provide a `df.sql(...)` method.
+- since `pdx` uses DuckDB, you can leverage their convienient SQL dialect:
+  - https://duckdb.org/2022/05/04/friendlier-sql.html
+  - https://duckdbsnippets.com/
+
+
+Query a dataframe with `df.sql(...)`.
+Omit the `FROM` clause because it is included implicitly:
+
+```python
+import pdx
+iris = pdx.data.get_iris()
+
+iris.sql("""
+select
+    species,
+    count(*)
+        as num,
+group by
+    1
+""")
+```
+
+You can use short SQL (sub-)expressions because `FROM` and `SELECT *` are implied whenever they're omitted:
+
+```python
+iris.sql('where petal_length > 4.5')
+```
+
+```python
+iris.sql('limit 10')
+```
+
+```python
+iris.sql('order by petal_length')
+```
+
+```python
+iris.sql('')  # returns the dataframe unmodified. I.e., 'select * from iris'
+```
+
+For more, check out the [example notebook folder](notebooks).
+
+# Other affordances
+
+- `df.aslist()`
+- `df.asdict()`
+- `df.asitem()`
+- `df.cols2dict()`
+- save/load helpers for DuckDB database files
+
+# Reference
+
 - [Apache Arrow and the "10 Things I Hate About pandas"](https://wesmckinney.com/blog/apache-arrow-pandas-internals/)
-
-Check out the [example notebook folder](notebooks).
-
-## Useful stuff
-
-- `pdx.get_params(query_string)`
-- `df.sql(query_string)`
-- duckdb save/load
-  - `pdx.save(filename, tbl1=df1, tbl2=df2)`
-  - `pdx.load(filename) -> dict(table_name: dataframe)`
 
 ## For bleeding edge DuckDB
 
