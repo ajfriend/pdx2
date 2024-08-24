@@ -1,3 +1,7 @@
+# 0.5.0
+
+- drop `prql`; i never use it
+
 # 0.4.0
 
 - remove `get_params` (as that's really for external queries that need to work with Jinja)

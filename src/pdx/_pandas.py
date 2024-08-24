@@ -74,13 +74,6 @@ def _is_CTE(s):
     return s.strip().startswith('with')
 
 
-def _prql(df, s='', tbl_name='_df'):
-    s = _get_if_file(s)
-    s = f'from {tbl_name}\n' + s
-    tables = {tbl_name: df}
-
-    return _query.prql(s, **tables)
-
 
 def _as_list(df):
     """Transform a df with one row or one column to a list"""
@@ -132,7 +125,6 @@ def _cols2dict(df):
 
 
 PandasObject.sql = _sql
-PandasObject.prql = _prql
 
 PandasObject.aslist = _as_list
 PandasObject.asdict = _as_dict
