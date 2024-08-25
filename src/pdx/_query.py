@@ -5,15 +5,8 @@ from ._util import _get_if_file
 
 
 def sql(s, **dfs):
-    config = {'enable_external_access': False}
-    con = duckdb.connect(database=':memory:', config=config)
-
-    for tbl_name, df in dfs.items():
-        df = pa.Table.from_pandas(df)
-        con.register(tbl_name, df)
-
-    s = _get_if_file(s)
-    out = con.execute(s).df()
+    db = Database(**dfs)
+    out = db.sql(s)
 
     return out
 
@@ -32,7 +25,7 @@ class Database:
         self._con = con
 
     def __repr__(self):
-        tables = yield_table_lines(self)
+        tables = _yield_table_lines(self)
 
         s = 'pdx.Database:\n'
         for table in tables:
@@ -46,7 +39,7 @@ class Database:
         return out
 
 
-def yield_table_lines(db):
+def _yield_table_lines(db):
     df = db.sql('show all tables')
 
     for _, tbl in df.iterrows():
