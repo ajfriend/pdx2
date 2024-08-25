@@ -1,5 +1,5 @@
 from ._query import (
-    sql,
+    sql, Database
 )
 
 from . import _pandas # triggers pandas monkeypatching
