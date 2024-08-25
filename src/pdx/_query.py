@@ -48,19 +48,3 @@ def _yield_table_lines(db):
         n = db.sql(f'select count() from {name}').asitem()
 
         yield f'{name}: {n} x {columns}'
-
-
-# todo: can we do some fancier thing to specify the dicts?
-# https://docs.python.org/3/library/string.html#string.Formatter.vformat
-# s = """
-# select
-#       iris.*
-#     , df2.avg_petal_width
-#         as species_avg_petal_width
-# from
-#     {iris}
-# left join
-#     {df2}
-# on
-#     iris.species = df2.species
-# """
