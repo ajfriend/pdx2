@@ -26,12 +26,16 @@ class Database:
 
     def __repr__(self):
         tables = _yield_table_lines(self)
+        tables = [
+            f'\n    {t}'
+            for t in tables
+        ]
+        tables = ''.join(tables)
+        tables = tables or ' None'
 
-        s = 'pdx.Database:\n'
-        for table in tables:
-            s += f'    {table}'
+        out = 'pdx.Database:' + tables
 
-        return s
+        return out
 
     def sql(self, s):
         s = _get_if_file(s)
