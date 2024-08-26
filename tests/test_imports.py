@@ -10,4 +10,4 @@ def test_4():
 def test_version():
     import pdx
     
-    assert pdx.__version__ == '0.6.0'
+    assert pdx.__version__ == '0.7.0'
