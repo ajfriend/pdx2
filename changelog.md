@@ -1,3 +1,8 @@
+# 0.7.0
+
+- add `pdx.Database` #22
+- fix pyarrow bug #19
+
 # 0.5.0
 
 - drop `prql`; i never use it
