@@ -1,5 +1,7 @@
 # PDX2: Helper functions to run SQL on Pandas DataFrames
 
+[GitHub](https://github.com/ajfriend/pdx2) | [PyPI](https://pypi.org/project/pdx2/)
+
 **NOTE**: This is basically a clone of https://github.com/ajfriend/pdx (since `pdx` is already taken on PyPI.)
 
 ```shell
