@@ -4,7 +4,7 @@ init: purge
 	make lib
 
 lib:
-	env/bin/pip install -e .[dev]
+	env/bin/pip install -e .[tests]
 
 clear:
 	-@env/bin/pip uninstall -y pdx2
