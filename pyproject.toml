@@ -1,6 +1,6 @@
 [project]
 name = 'pdx2'
-version = '0.8.0'
+version = '0.9.0'
 description = 'Helper functions to run SQL on Pandas DataFrames'
 authors = [
     {name = 'AJ Friend', email='ajfriend@gmail.com'},
