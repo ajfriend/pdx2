@@ -18,24 +18,13 @@ dependencies = [
 homepage = 'https://github.com/ajfriend/pdx2'
 
 [project.optional-dependencies]
-test = [
-    'pytest >= 7.0',
-    'ruff',
-]
+test = ['pytest', 'pytest-cov', 'ruff']
 
 [tool.pytest.ini_options]
-# minversion = '7.0'
-addopts = '--durations=10'
-testpaths = [
-    'tests',
-]
+addopts = "--cov=pdx2 --cov=tests --cov-report=term-missing --cov-fail-under=92"
 
 # hatchling is kind of nice because it avoids leaving around all
 # that .egg_info baloney
 [build-system]
 requires = ['hatchling']
 build-backend = 'hatchling.build'
-
-
-[tool.pytest.ini_options]
-addopts = "--cov=pdx2 --cov=tests --cov-report=term-missing --cov-fail-under=10"
