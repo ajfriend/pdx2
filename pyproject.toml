@@ -18,8 +18,9 @@ dependencies = [
 homepage = 'https://github.com/ajfriend/pdx2'
 
 [project.optional-dependencies]
-tests = [
-    'pytest >= 7.0'
+test = [
+    'pytest >= 7.0',
+    'ruff',
 ]
 
 [tool.pytest.ini_options]
