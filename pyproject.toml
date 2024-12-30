@@ -35,3 +35,7 @@ testpaths = [
 [build-system]
 requires = ['hatchling']
 build-backend = 'hatchling.build'
+
+
+[tool.pytest.ini_options]
+addopts = "--cov=pdx2 --cov=tests --cov-report=term-missing --cov-fail-under=10"
