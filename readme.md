@@ -1,7 +1,9 @@
-# PDX: Helper functions to run SQL on Pandas DataFrames
+# PDX2: Helper functions to run SQL on Pandas DataFrames
+
+**NOTE**: This is basically a clone of https://github.com/ajfriend/pdx (since `pdx` is already taken on PyPI.)
 
 ```shell
-pip install git+https://github.com/ajfriend/pdx
+pip install pdx2
 ```
 
 Small ergonomic improvements to make it easy to run [DuckDB](https://duckdb.org/) queries on Pandas DataFrames.
