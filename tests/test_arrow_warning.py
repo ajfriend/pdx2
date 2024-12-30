@@ -32,6 +32,6 @@ def test_no_warning():
 
     foo(pa_df)
 
-def test_with_pdx():
-    import pdx
+def test_with_pdx2():
+    import pdx2
     pd_df.sql()  # should run without warning

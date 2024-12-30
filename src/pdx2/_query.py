@@ -33,7 +33,7 @@ class Database:
         tables = ''.join(tables)
         tables = tables or ' None'
 
-        out = 'pdx.Database:' + tables
+        out = 'pdx2.Database:' + tables
 
         return out
 

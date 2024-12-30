@@ -1,10 +1,10 @@
-import pdx
+import pdx2
 import pytest
 
 
 def test_db():
-    iris = pdx.data.get_iris()
-    db = pdx.Database(iris=iris)
+    iris = pdx2.data.get_iris()
+    db = pdx2.Database(iris=iris)
 
     out = db.sql("""
     select
@@ -28,11 +28,11 @@ def test_db():
 
 def test_repr():
     from textwrap import dedent
-    iris = pdx.data.get_iris()
-    db = pdx.Database(iris=iris)
+    iris = pdx2.data.get_iris()
+    db = pdx2.Database(iris=iris)
 
     ex = """
-    pdx.Database:
+    pdx2.Database:
         iris: 150 x ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
     """
     ex = dedent(ex)

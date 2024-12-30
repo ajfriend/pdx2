@@ -1,9 +1,9 @@
-import pdx
+import pdx2
 from pytest import approx
 
 
 def test_from_first_sql():
-    iris = pdx.data.get_iris()
+    iris = pdx2.data.get_iris()
 
     foo = lambda s: iris.sql(s).asitem()
 
@@ -27,7 +27,7 @@ def test_from_first_sql():
 
 
 def test_default_table_name_and_CTE():
-    iris = pdx.data.get_iris()
+    iris = pdx2.data.get_iris()
 
     out = iris.sql("""
     with _ as (select 1)

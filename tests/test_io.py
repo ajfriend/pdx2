@@ -1,13 +1,13 @@
-import pdx
+import pdx2
 import os
 
 def test_one():
-    df = pdx.data.get_iris()
+    df = pdx2.data.get_iris()
 
     filename = 'test.duckdb'
 
-    pdx.save(filename, table_name=df)
-    out = pdx.load(filename)
+    pdx2.save(filename, table_name=df)
+    out = pdx2.load(filename)
 
     try:
         os.remove(filename)

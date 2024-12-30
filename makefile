@@ -7,7 +7,7 @@ lib:
 	env/bin/pip install -e .[dev]
 
 clear:
-	-@env/bin/pip uninstall -y pdx
+	-@env/bin/pip uninstall -y pdx2
 	-@rm -rf MANIFEST
 	-@rm -rf annotations
 	-@rm -rf .pytest_cache tests/__pycache__ __pycache__ _skbuild dist .coverage

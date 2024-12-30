@@ -5,9 +5,9 @@ def test_3():
     import duckdb
 
 def test_4():
-    import pdx
+    import pdx2
 
 def test_version():
-    import pdx
+    import pdx2
     
-    assert pdx.__version__ == '0.7.0'
+    assert pdx2.__version__ == '0.8.0'

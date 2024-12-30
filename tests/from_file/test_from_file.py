@@ -1,4 +1,4 @@
-import pdx
+import pdx2
 import os
 
 def get_absolute_filename(local_filename):
@@ -6,7 +6,7 @@ def get_absolute_filename(local_filename):
     return s
 
 def test_from_file():
-    iris = pdx.data.get_iris()
+    iris = pdx2.data.get_iris()
 
     expected = {'setosa': 50, 'versicolor': 50, 'virginica': 50}
 
@@ -14,4 +14,4 @@ def test_from_file():
     assert iris.sql(f).cols2dict() == expected
 
     f = get_absolute_filename('long.sql')
-    assert pdx.sql(f, tbl=iris).cols2dict() == expected
+    assert pdx2.sql(f, tbl=iris).cols2dict() == expected
