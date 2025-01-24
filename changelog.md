@@ -1,3 +1,7 @@
+# 0.11.0 -- 2025-01-24
+
+- loosen to pyarrow >= 15
+
 # 0.7.0
 
 - add `pdx.Database` #22
